@@ -15,6 +15,7 @@ import {
 import foto from '../../assets/images/foto-linkedin.jpeg'
 // import wallpaper from '../../assets/images/close-up-laptop-keyboard-colorful-neon-illumination-backlit-keyboard.jpg'
 import wallpaper from '../../assets/images/wallpaper.png'
+import CardsGrid from "../../components/CardsGrid/CardsGrid";
 function Author() {
   return (
     <>
@@ -72,39 +73,16 @@ function Author() {
         </Card>
       </Container>
 
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" >
         <Typography variant="h6" fontWeight="bold" gutterBottom>
           Check my latest blogposts
         </Typography>
-        <Grid container spacing={3}>
-          {[1, 2, 3, 4].map((i) => (
-            <Grid item xs={12} sm={6} md={3} key={i}>
-              <Card sx={{ height: "100%" }}>
-                <CardMedia
-                  component="img"
-                  height="160"
-                  image="https://source.unsplash.com/random/300x200?sig="
-                  alt="Blogpost"
-                />
-                <CardContent>
-                  <Typography variant="subtitle1" fontWeight="bold">
-                    {i === 1 ? "Rover raised $65 million" : "MateLabs machine learning"}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {i === 1
-                      ? "Finding temporary housing for your dog should be as easy as renting an Airbnb."
-                      : "If you’ve ever wanted to train a machine learning model and integrate it with IFTTT..."}
-                  </Typography>
-                  <Link href="#" underline="hover" sx={{ display: "inline-block", mt: 1 }}>
-                    Read More →
-                  </Link>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+        <Grid sx={{marginTop:5}}>
+          <CardsGrid />
+
         </Grid>
       </Container>
-      
+
       {/* <Box
         sx={{
           height: "45vh",
