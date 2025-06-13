@@ -18,7 +18,6 @@ import wallpaper from '../../assets/images/wallpaper.png'
 function Author() {
   return (
     <>
-      {/* Header with background image */}
       <Box
         sx={{
           height: "45vh",
@@ -40,7 +39,6 @@ function Author() {
         />
       </Box>
 
-      {/* Profile Card */}
       <Container maxWidth="lg" sx={{ mt: 0, mb: 6 , marginTop:2}}>
         <Card sx={{ p: 4, borderRadius: 3, boxShadow: 3 }}>
           <Grid container spacing={2} alignItems="center">
@@ -74,7 +72,6 @@ function Author() {
         </Card>
       </Container>
 
-      {/* Blog Section */}
       <Container maxWidth="lg">
         <Typography variant="h6" fontWeight="bold" gutterBottom>
           Check my latest blogposts
@@ -107,6 +104,100 @@ function Author() {
           ))}
         </Grid>
       </Container>
+      
+      {/* <Box
+        sx={{
+          height: "45vh",
+          backgroundImage: `url(${wallpaper})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          position: "relative",
+        }}
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.5)",
+          }}
+        />
+      </Box>
+
+      <Container maxWidth="xl" sx={{ position: "relative", mt: -12, zIndex: 2 }}>
+        <Card sx={{ p: 4, borderRadius: 3, boxShadow: 4 }}>
+          <Box sx={{ textAlign: "center", mt: -2 }}>
+            <Avatar
+              alt="Guilherme Brida"
+              src={foto}
+              sx={{
+                width: 100,
+                height: 100,
+                border: "4px solid white",
+                mx: "auto",
+              }}
+            />
+          </Box>
+
+          <Box sx={{ mt: 3,alignContent:"center" }}>
+            <Grid container spacing={2} alignItems="center">
+              <Grid item xs={12} sm={9}>
+                <Typography variant="h5" fontWeight="bold">
+                  Guilherme Brida
+                </Typography>
+                <Typography variant="body2" sx={{ mt: 1 }}>
+                  <b>Full Stack Software Developer</b>
+                </Typography>
+                <Typography variant="body1" color="text.secondary" sx={{ mt: 2 }}>
+                  I'm a Full Stack Software Developer passionate about technology, innovation, and solving complex problems.
+                  I have experience building APIs, web platforms, mobile apps, automations, and embedded systems,
+                  always with a strong focus on performance, scalability, and security.
+                </Typography>
+                <Link href="#" underline="hover" sx={{ display: "inline-block", mt: 1 }}>
+                  More about me →
+                </Link>
+              </Grid>
+              <Grid item xs={12} sm={3} textAlign="center">
+                <Button variant="outlined">FOLLOW</Button>
+              </Grid>
+            </Grid>
+
+            <Box sx={{ mt: 6 }}>
+              <Typography variant="h6" fontWeight="bold" gutterBottom>
+                Check my latest blogposts
+              </Typography>
+              <Grid container spacing={3}>
+                {[1, 2, 3, 4].map((i) => (
+                  <Grid item xs={12} sm={6} md={3} key={i}>
+                    <Card sx={{ height: "100%" }}>
+                      <CardMedia
+                        component="img"
+                        height="160"
+                        image={`https://source.unsplash.com/random/300x200?sig=${i}`}
+                        alt="Blogpost"
+                      />
+                      <CardContent>
+                        <Typography variant="subtitle1" fontWeight="bold">
+                          {i === 1 ? "Rover raised $65 million" : "MateLabs machine learning"}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {i === 1
+                            ? "Finding temporary housing for your dog should be as easy as renting an Airbnb."
+                            : "If you’ve ever wanted to train a machine learning model and integrate it with IFTTT..."}
+                        </Typography>
+                        <Link href="#" underline="hover" sx={{ display: "inline-block", mt: 1 }}>
+                          Read More →
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+          </Box>
+        </Card>
+      </Container> */}
 
       {/* Footer */}
       <Box sx={{ mt: 8, py: 4, bgcolor: "grey.100" }}>
