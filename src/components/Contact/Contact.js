@@ -6,11 +6,35 @@ import {
   Button,
   Container,
 } from "@mui/material";
-
-// import bgImage from "../../assets/images/close-up-laptop-keyboard-colorful-neon-illumination-backlit-keyboard.jpg";
+import emailjs from "emailjs-com";
+import { useRef } from "react";
 import bgImage from "../../assets/images/un-illustrazione-di-un-desktop-con-un-portatile-aperto_94064-15751.avif";
 
 function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_0boj74r",
+        "template_9v1ishi",
+        form.current,
+        "G-ME9d7NwgP1cblpv"
+      )
+      .then(
+        (result) => {
+          alert("Mensagem enviada com sucesso!");
+          form.current.reset();
+        },
+        (error) => {
+          alert("Erro ao enviar mensagem. Tente novamente.");
+          console.error(error.text);
+        }
+      );
+  };
+
   return (
     <Box component="section" sx={{ py: { xs: 0, lg: 6 } }}>
       <Container>
@@ -46,60 +70,40 @@ function Contact() {
                   height="100%"
                 >
                   <Box py={6} pr={6} pl={{ xs: 6, sm: 12 }} my="auto">
-                    <Typography variant="h4" mb={1} >
+                    <Typography variant="h4" mb={1}>
                       Contact Information
                     </Typography>
-                    {/* <Typography variant="body2" sx={{ opacity: 0.8, mb: 3 }}>
-                      Fill up the form and our team will get back to you within 24 hours.
-                    </Typography> */}
 
                     <Box display="flex" alignItems="center" mb={1}>
-                      <Typography variant="body2">
-                        📞
-                      </Typography>
+                      <Typography variant="body2">📞</Typography>
                       <Typography sx={{ ml: 2, opacity: 0.8 }}>
                         (+55) 51 99516-3495
                       </Typography>
                     </Box>
 
                     <Box display="flex" alignItems="center" mb={1}>
-                      <Typography variant="body2">
-                        📧
-                      </Typography>
+                      <Typography variant="body2">📧</Typography>
                       <Typography sx={{ ml: 2, opacity: 0.8 }}>
                         guilherme-brida@hotmail.com
                       </Typography>
                     </Box>
 
                     <Box display="flex" alignItems="center" mb={3}>
-                      <Typography variant="body2">
-                        📍
-                      </Typography>
+                      <Typography variant="body2">📍</Typography>
                       <Typography sx={{ ml: 2, opacity: 0.8 }}>
                         Novo Hamburgo, Brazil
                       </Typography>
                     </Box>
 
                     <Box>
-                      <Button variant="text" sx={{ color: "white", minWidth: "auto", mr: 1 }}>
-                        <i className="fab fa-facebook" style={{ fontSize: "1.25rem" }} />
-                      </Button>
-                      <Button variant="text" sx={{ color: "white", minWidth: "auto", mr: 1 }}>
-                        <i className="fab fa-twitter" style={{ fontSize: "1.25rem" }} />
-                      </Button>
-                      <Button variant="text" sx={{ color: "white", minWidth: "auto", mr: 1 }}>
-                        <i className="fab fa-dribbble" style={{ fontSize: "1.25rem" }} />
-                      </Button>
-                      <Button variant="text" sx={{ color: "white", minWidth: "auto" }}>
-                        <i className="fab fa-instagram" style={{ fontSize: "1.25rem" }} />
-                      </Button>
+                      {/* Redes sociais aqui */}
                     </Box>
                   </Box>
                 </Box>
               </Grid>
 
               <Grid item xs={12} lg={7}>
-                <Box component="form" p={2} method="post">
+                <Box component="form" p={2} ref={form} onSubmit={sendEmail}>
                   <Box px={3} py={{ xs: 2, sm: 6 }}>
                     <Typography variant="h4" mb={1}>
                       Reach me out!
@@ -114,16 +118,26 @@ function Contact() {
                       <Grid item xs={12}>
                         <TextField
                           variant="standard"
-                          label="My name is"
-                          placeholder="Full Name"
+                          label="Full Name"
+                          name="name"
                           fullWidth
+                          required
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          variant="standard"
+                          label="Best email"
+                          name="email"
+                          fullWidth
+                          required
                         />
                       </Grid>
                       <Grid item xs={12}>
                         <TextField
                           variant="standard"
                           label="I'm looking for"
-                          placeholder="What you love"
+                          name="subject"
                           fullWidth
                         />
                       </Grid>
@@ -131,16 +145,17 @@ function Contact() {
                         <TextField
                           variant="standard"
                           label="Your message"
-                          placeholder="I want to say that..."
+                          name="message"
                           fullWidth
                           multiline
                           rows={6}
+                          required
                         />
                       </Grid>
                     </Grid>
 
                     <Grid container justifyContent="flex-end" sx={{ mt: 3 }}>
-                      <Button variant="contained" color="primary">
+                      <Button type="submit" variant="contained" color="primary">
                         Send Message
                       </Button>
                     </Grid>
