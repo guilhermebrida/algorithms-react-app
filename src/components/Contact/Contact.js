@@ -16,7 +16,7 @@ import { useState } from "react";
 function Contact() {
     const form = useRef();
     const [open, setOpen] = useState(false);
-    const [success, setSuccess] = useState(true); // true = sucesso, false = erro
+    const [success, setSuccess] = useState(true); 
     const [message, setMessage] = useState("");
 
     const sendEmail = (e) => {
