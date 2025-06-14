@@ -5,38 +5,64 @@ import {
   TextField,
   Button,
   Container,
+  Alert,
+  Snackbar
 } from "@mui/material";
 import emailjs from "emailjs-com";
 import { useRef } from "react";
 import bgImage from "../../assets/images/un-illustrazione-di-un-desktop-con-un-portatile-aperto_94064-15751.avif";
+import { useState } from "react";
 
 function Contact() {
-  const form = useRef();
+    const form = useRef();
+    const [open, setOpen] = useState(false);
+    const [success, setSuccess] = useState(true); // true = sucesso, false = erro
+    const [message, setMessage] = useState("");
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+    const sendEmail = (e) => {
+        e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_0boj74r",
-        "template_9v1ishi",
-        form.current,
-        "G-ME9d7NwgP1cblpv"
-      )
-      .then(
-        (result) => {
-          alert("Mensagem enviada com sucesso!");
+        emailjs
+        .sendForm(
+            "service_0boj74r",
+            "template_9v1ishi",
+            form.current,
+            "G-ME9d7NwgP1cblpv"
+        )
+        .then(
+        () => {
+          setSuccess(true);
+          setMessage("Mensagem enviada com sucesso!");
+          setOpen(true);
           form.current.reset();
         },
-        (error) => {
-          alert("Erro ao enviar mensagem. Tente novamente.");
-          console.error(error.text);
+        () => {
+          setSuccess(false);
+          setMessage("Erro ao enviar mensagem. Tente novamente.");
+          setOpen(true);
         }
       );
   };
 
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
+
   return (
+
     <Box component="section" sx={{ py: { xs: 0, lg: 6 } }}>
+      <Snackbar
+        open={open}
+        autoHideDuration={4000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <Alert onClose={handleClose} severity={success ? "success" : "error"} variant="filled" sx={{ fontSize: "0.875rem" }}>
+          {message}
+        </Alert>
+      </Snackbar>
       <Container>
         <Grid container>
           <Box
