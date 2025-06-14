@@ -13,32 +13,14 @@ import {
 } from "@mui/material";
 
 import foto from '../../assets/images/foto-linkedin.jpeg'
-// import wallpaper from '../../assets/images/close-up-laptop-keyboard-colorful-neon-illumination-backlit-keyboard.jpg'
-import wallpaper from '../../assets/images/wallpaper.png'
-import CardsGrid from "../../components/CardsGrid/CardsGrid";
+import BackGroudWallPaper from "../../components/BackGroudWallPaper/BackGroundWallPaper"
+import ProjectsContainer from "../../components/ProjectsContainer/ProjectsContainer"
+import Contact from "../../components/Contact/Contact";
+
 function Author() {
   return (
     <>
-      <Box
-        sx={{
-          height: "45vh",
-          backgroundImage: `url(${wallpaper})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          position: "relative",
-        }}
-      >
-        <Box
-          sx={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0,0,0,0.5)",
-            
-          }}
-        />
-      </Box>
+      {/* <BackGroudWallPaper />
 
       <Container maxWidth="lg" sx={{ mt: 0, mb: 6 , marginTop:2}}>
         <Card sx={{ p: 4, borderRadius: 3, boxShadow: 3 }}>
@@ -72,39 +54,14 @@ function Author() {
           </Grid>
         </Card>
       </Container>
+      <ProjectsContainer /> */}
 
-      <Container maxWidth="lg" >
-        <Typography variant="h6" fontWeight="bold" gutterBottom>
-          Check my latest blogposts
-        </Typography>
-        <Grid sx={{marginTop:5}}>
-          <CardsGrid />
 
-        </Grid>
-      </Container>
 
-      {/* <Box
-        sx={{
-          height: "45vh",
-          backgroundImage: `url(${wallpaper})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          position: "relative",
-        }}
-      >
-        <Box
-          sx={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0,0,0,0.5)",
-          }}
-        />
-      </Box>
 
-      <Container maxWidth="xl" sx={{ position: "relative", mt: -12, zIndex: 2 }}>
-        <Card sx={{ p: 4, borderRadius: 3, boxShadow: 4 }}>
+    <BackGroudWallPaper />
+      <Container maxWidth="xl" sx={{ position: "relative", mt: -5, zIndex: 2 }}>
+        <Card sx={{ mx:"auto", p: 4, borderRadius: 3, boxShadow: 4 }}>
           <Box sx={{ textAlign: "center", mt: -2 }}>
             <Avatar
               alt="Guilherme Brida"
@@ -120,62 +77,45 @@ function Author() {
 
           <Box sx={{ mt: 3,alignContent:"center" }}>
             <Grid container spacing={2} alignItems="center">
-              <Grid item xs={12} sm={9}>
+              <Grid item xs={12} sm={12}>
                 <Typography variant="h5" fontWeight="bold">
                   Guilherme Brida
                 </Typography>
                 <Typography variant="body2" sx={{ mt: 1 }}>
-                  <b>Full Stack Software Developer</b>
+                  <b style={{gap:10}}>Full Stack Software Developer</b>
                 </Typography>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    style={{
+                      marginTop: 10,
+                      padding: "2px 8px",
+                      fontSize: "0.6rem",
+                      minWidth: "unset"
+                    }}
+                    href="https://www.linkedin.com/in/guilherme-de-brida-dev"
+                  >
+                    FOLLOW
+                  </Button>
+
                 <Typography variant="body1" color="text.secondary" sx={{ mt: 2 }}>
                   I'm a Full Stack Software Developer passionate about technology, innovation, and solving complex problems.
                   I have experience building APIs, web platforms, mobile apps, automations, and embedded systems,
                   always with a strong focus on performance, scalability, and security.
                 </Typography>
-                <Link href="#" underline="hover" sx={{ display: "inline-block", mt: 1 }}>
+                <Link href="https://www.linkedin.com/in/guilherme-de-brida-dev" underline="hover" sx={{ display: "inline-block", mt: 1 }}>
                   More about me →
                 </Link>
               </Grid>
-              <Grid item xs={12} sm={3} textAlign="center">
-                <Button variant="outlined">FOLLOW</Button>
-              </Grid>
             </Grid>
-
             <Box sx={{ mt: 6 }}>
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
-                Check my latest blogposts
-              </Typography>
-              <Grid container spacing={3}>
-                {[1, 2, 3, 4].map((i) => (
-                  <Grid item xs={12} sm={6} md={3} key={i}>
-                    <Card sx={{ height: "100%" }}>
-                      <CardMedia
-                        component="img"
-                        height="160"
-                        image={`https://source.unsplash.com/random/300x200?sig=${i}`}
-                        alt="Blogpost"
-                      />
-                      <CardContent>
-                        <Typography variant="subtitle1" fontWeight="bold">
-                          {i === 1 ? "Rover raised $65 million" : "MateLabs machine learning"}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {i === 1
-                            ? "Finding temporary housing for your dog should be as easy as renting an Airbnb."
-                            : "If you’ve ever wanted to train a machine learning model and integrate it with IFTTT..."}
-                        </Typography>
-                        <Link href="#" underline="hover" sx={{ display: "inline-block", mt: 1 }}>
-                          Read More →
-                        </Link>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
+              <ProjectsContainer />
             </Box>
           </Box>
         </Card>
-      </Container> */}
+      </Container>
+
+      <Contact />
 
       {/* Footer */}
       <Box sx={{ mt: 8, py: 4, bgcolor: "grey.100" }}>

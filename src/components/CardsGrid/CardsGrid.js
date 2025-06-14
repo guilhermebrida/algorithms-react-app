@@ -41,9 +41,9 @@ export default function CardsGrid() {
   if (loading) return <p>Carregando...</p>;
 
   return (
-    <Grid container spacing={2}>
+    <Grid id="CardsGrid-Grid-0"container spacing={2}>
       {cardsData.map(({ id, image, title, description }) => (
-        <Grid item xs={12} sm={6} md={3} key={id}>
+        <Grid id={"CardsGrid-Grid-"+id} item xs={12} sm={6} md={3} key={id}>
           <Card sx={{ height: "100%" }}>
             <CardMedia
               component="img"
