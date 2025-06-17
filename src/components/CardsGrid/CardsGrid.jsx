@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Card, CardMedia, CardContent, Typography, Link } from "@mui/material";
+import { Grid, Card, CardMedia, CardContent, Typography, Link, Skeleton } from "@mui/material";
 
 export default function CardsGrid() {
   const [cardsData, setCardsData] = useState([]);
@@ -38,7 +38,24 @@ export default function CardsGrid() {
     fetchCards();
   }, []);
 
-  if (loading) return <p>Carregando...</p>;
+    if (loading) {
+    return (
+      <Grid container spacing={2}>
+        {Array.from(new Array(4)).map((_, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <Card sx={{ height: "100%" }}>
+              <Skeleton variant="rectangular" height={160} />
+              <CardContent>
+                <Skeleton variant="text" width="80%" />
+                <Skeleton variant="text" width="60%" />
+                <Skeleton variant="text" width="40%" />
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    );
+  }
 
   return (
     <Grid id="CardsGrid-Grid-0"container spacing={2}>

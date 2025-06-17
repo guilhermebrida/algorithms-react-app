@@ -118,13 +118,13 @@ function Author() {
       <Contact />
 
       {/* Footer */}
-      <Box sx={{ mt: 8, py: 4, bgcolor: "grey.100" }}>
+      {/* <Box sx={{ mt: 8, py: 4, bgcolor: "grey.100" }}>
         <Container>
           <Typography variant="body2" color="text.secondary" align="center">
             © {new Date().getFullYear()} Your Company. All rights reserved.
           </Typography>
         </Container>
-      </Box>
+      </Box> */}
     </>
   );
 }
