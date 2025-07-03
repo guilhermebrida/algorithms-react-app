@@ -32,7 +32,7 @@ export default function AlgorithmCard({ title, description, code, language = "py
           borderRadius: 3,
           flexGrow: 1,
           overflowY: "auto",
-          backgroundColor: "#282c34", // cor escura para combinar com syntax highlighter
+          backgroundColor: "#282c34",
           textAlign: "left",
         }}
       >

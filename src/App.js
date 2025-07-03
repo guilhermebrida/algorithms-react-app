@@ -19,7 +19,6 @@ function App() {
             <Route path="/algorithms" element={<Algorithms />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
-          {/* <Profile /> */}
           <Footer />
           </Router>
         </div>
