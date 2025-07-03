@@ -123,7 +123,7 @@ export default function ContactPage(){
                         </Typography>
                     </Card>
                     <Typography item xs={12} variant="body2" marginTop={8} sx={{fontWeight:"bold"}}>
-                        For further questions, including partnership opportunities, please email guilherme-brida@hotmail.com or contact using our contact form. 
+                        Reach out anytime. For inquiries, opportunities, or support, contact me at guilherme-brida@hotmail.com or via the form.
                     </Typography>
                 <form ref={form} onSubmit={sendEmail}>
                 <Box pt={0.5} pb={3} px={3} >
