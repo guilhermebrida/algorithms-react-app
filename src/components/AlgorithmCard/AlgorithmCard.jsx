@@ -13,7 +13,7 @@ export default function AlgorithmCard({ title, description, code, language = "py
         borderRadius: 3,
         textAlign: "center",
         backgroundColor: "#f5f5f5",
-        height: 600,
+        height: 570,
         display: "flex",
         flexDirection: "column",
       }}

@@ -82,7 +82,7 @@ function Contact() {
                 lg={5}
                 sx={{
                   position: "relative",
-                  backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${bgImage})`,
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(61, 47, 47, 0.6)), url(${bgImage})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   color: "white",

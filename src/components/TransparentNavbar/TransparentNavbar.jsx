@@ -27,7 +27,7 @@ export default function TransparentNavbar() {
           <Button sx={{ color: "white", textTransform: "none", mx: 1 }}><GitHubIcon fontSize="smal" sx={{marginRight:1}}/> Github</Button> */}
           <Link component={RouterLink} to="/" underline="none" color="white" mx={1}>Home</Link>
           <Link component={RouterLink} to="/algorithms" underline="none" color="white" mx={1}>Algorithms</Link>
-          <Link href="#contato" underline="none" color="white" mx={1}>Contato</Link>
+          <Link href="/contact" underline="none" color="white" mx={1}>Contato</Link>
           <Link href="https://github.com/guilhermebrida" underline="none" color="white" target="_blank" mx={1} ><GitHubIcon fontSize="smal" sx={{marginRight:1}}/>Github</Link>
         </Box>
       </Toolbar>

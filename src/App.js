@@ -6,6 +6,7 @@ import TransparentNavbar from './components/TransparentNavbar/TransparentNavbar'
 import Footer from './components/Footer/Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Algorithms from './pages/landing-pages/Algorithms'
+import ContactPage from './pages/landing-pages/ContactPage';
 function App() {
   return (
       <ThemeProvider theme={theme}>
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Profile />} />
             <Route path="/algorithms" element={<Algorithms />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
           {/* <Profile /> */}
           <Footer />

@@ -13,13 +13,13 @@ const theme = createTheme({
       main: '#dc004e', // Rosa
     },
     background: {
-        default: '#f3f2f2', // ou outra cor
+        default: '#f3f2f2',
         paper: '#ffffff',
     },
-    // text: {
-    //   primary: '#000000',
-    //   secondary: '#555555',
-    // },
+    text: {
+      primary: '#000000',
+      secondary: '#555555',
+    },
      mode: 'light',
   },
   components: {

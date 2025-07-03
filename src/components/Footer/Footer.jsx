@@ -3,8 +3,9 @@ import { Box, Container, Grid, Link, Typography, IconButton } from '@mui/materia
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import PinterestIcon from '@mui/icons-material/Pinterest';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+
 
 export default function Footer() {
   return (
@@ -38,8 +39,8 @@ export default function Footer() {
           <IconButton href="https://www.instagram.com/guilhermebrida/" color="inherit" size="small">
             <InstagramIcon fontSize="small" />
           </IconButton>
-          <IconButton href="#" color="inherit" size="small">
-            <PinterestIcon fontSize="small" />
+          <IconButton href="https://www.linkedin.com/in/guilherme-de-brida-dev/" color="inherit" size="small">
+            <LinkedInIcon fontSize="small" />
           </IconButton>
           <IconButton href="https://github.com/guilhermebrida" color="inherit" size="small">
             <GitHubIcon fontSize="small" />
