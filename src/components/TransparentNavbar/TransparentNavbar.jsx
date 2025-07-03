@@ -18,7 +18,7 @@ export default function TransparentNavbar() {
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Typography variant="h6" fontWeight="bold">
-          MeuSite
+          MyProfile
         </Typography>
         <Box >
           {/* <Button sx={{ color: "white", textTransform: "none", mx: 1 }}>Home</Button>
