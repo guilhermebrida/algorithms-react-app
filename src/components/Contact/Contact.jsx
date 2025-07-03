@@ -22,6 +22,20 @@ function Contact() {
     const sendEmail = (e) => {
         e.preventDefault();
 
+        const lastSent = localStorage.getItem("lastEmailSent");
+        const now = new Date().getTime();
+
+        if (lastSent && now - parseInt(lastSent) < 12 * 60 * 60 * 1000) {
+          const remainingTime = 12 * 60 * 60 * 1000 - (now - parseInt(lastSent));
+          const hours = Math.floor(remainingTime / (60 * 60 * 1000));
+          const minutes = Math.floor((remainingTime % (60 * 60 * 1000)) / (60 * 1000));
+
+          setSuccess(false);
+          setMessage(`Aguarde ${hours}h ${minutes}min antes de enviar novamente.`);
+          setOpen(true);
+          return;
+        }
+
         emailjs
         .sendForm(
             "service_7yyr2uk",
@@ -31,6 +45,7 @@ function Contact() {
         )
         .then(
         () => {
+          localStorage.setItem("lastEmailSent",now.toString());
           setSuccess(true);
           setMessage("Mensagem enviada com sucesso!");
           setOpen(true);
@@ -119,10 +134,6 @@ function Contact() {
                       <Typography sx={{ ml: 2, opacity: 0.8 }}>
                         Novo Hamburgo, Brazil
                       </Typography>
-                    </Box>
-
-                    <Box>
-                      {/* Redes sociais aqui */}
                     </Box>
                   </Box>
                 </Box>

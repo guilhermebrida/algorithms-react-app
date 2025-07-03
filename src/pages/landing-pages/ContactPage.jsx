@@ -1,13 +1,61 @@
 import { Translate } from "@mui/icons-material";
-import { Box, Container, Card, Typography, TextField,Button, Grid} from "@mui/material";
-import { blue } from "@mui/material/colors";
-import theme from "../../assets/theme";
+import { Box, Container, Card, Typography, TextField,Button, Grid, Snackbar, Alert} from "@mui/material";
+import { useState, useRef } from "react";
+import emailjs from "emailjs-com";
 
 export default function ContactPage(){
     // const backgroundImage = 'https://demos.creative-tim.com/material-kit-react/static/media/illustration-reset.c5f36c0c.jpg'
     // const backgroundImage = 'https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/04.jpg?3'
     const backgroundImage = 'https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/non-4k/original/23.jpg?3'
     // const backgroundImage = 'https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/14.jpg?3'
+    const form = useRef();
+    const [open, setOpen] = useState(false);
+    const [success, setSuccess] = useState(true); 
+    const [message, setMessage] = useState("");
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        const lastSent = localStorage.getItem("lastEmailSent");
+        const now = new Date().getTime();
+
+        if (lastSent && now - parseInt(lastSent) < 12 * 60 * 60 * 1000) {
+          const remainingTime = 12 * 60 * 60 * 1000 - (now - parseInt(lastSent));
+          const hours = Math.floor(remainingTime / (60 * 60 * 1000));
+          const minutes = Math.floor((remainingTime % (60 * 60 * 1000)) / (60 * 1000));
+
+          setSuccess(false);
+          setMessage(`Aguarde ${hours}h ${minutes}min antes de enviar novamente.`);
+          setOpen(true);
+          return;
+        }
+
+        emailjs
+        .sendForm(
+            "service_7yyr2uk",
+            "template_9v1ishi",
+            form.current,
+            "G-ME9d7NwgP1cblpv"
+        )
+        .then(
+        () => {
+          localStorage.setItem("lastEmailSent",now.toString());
+          setSuccess(true);
+          setMessage("Mensagem enviada com sucesso!");
+          setOpen(true);
+          form.current.reset();
+        },
+        () => {
+          setSuccess(false);
+          setMessage("Erro ao enviar mensagem. Tente novamente.");
+          setOpen(true);
+        }
+      );
+  };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
 
     return (
@@ -23,7 +71,16 @@ export default function ContactPage(){
             justifyItems: "center",
             justifyContent: "end"
         }} >
-
+      <Snackbar
+        open={open}
+        autoHideDuration={4000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <Alert onClose={handleClose} severity={success ? "success" : "error"} variant="filled" sx={{ fontSize: "0.875rem" }}>
+          {message}
+        </Alert>
+      </Snackbar>
         <Container 
         sx={{
             flex: 0.5,
@@ -68,7 +125,8 @@ export default function ContactPage(){
                     <Typography item xs={12} variant="body2" marginTop={8} sx={{fontWeight:"bold"}}>
                         For further questions, including partnership opportunities, please email guilherme-brida@hotmail.com or contact using our contact form. 
                     </Typography>
-                <Box pt={0.5} pb={3} px={3}>
+                <form ref={form} onSubmit={sendEmail}>
+                <Box pt={0.5} pb={3} px={3} >
                     <Grid container spacing={3}>
                       <Grid item xs={6}>
                         <TextField
@@ -117,6 +175,7 @@ export default function ContactPage(){
                         </Grid>
                     </Grid>
                     </Box>
+                    </form>
                 </Card>
             </Container>
         </Box>
