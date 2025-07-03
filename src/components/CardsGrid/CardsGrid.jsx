@@ -19,12 +19,12 @@ export default function CardsGrid() {
     try {
       const apiURL = 'https://portfolio-api-nextjs-git-main-guilhermebridas-projects.vercel.app';
       const urls = [
+        "/api/user-management-system",
+        "/api/finance-ai",
         "/api/fota",
         "/api/todo-app",
-        "/api/finance-ai",
         "/api/agenda",
         "/api/short-my-url",
-        "/api/user-management-system",
       ];
 
       const responses = await Promise.all(urls.map((url) => fetch(apiURL + url)));
