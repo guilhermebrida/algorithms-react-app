@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Container, Typography, Card, CardContent, Grid,  } from "@mui/material";
 import AlgorithmCarousel from "../../components/AlgorithmCarousel/AlgorithmCarousel";
-import backgroundImage from "../../assets/images/flora-bg-compressed.jpg"
+import backgroundImage from "../../assets/images/flora-gb.jpeg"
+// import backgroundImage from "../../assets/images/flora-bg-compressed.jpg"
 
 // const backgroundImage = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb';
 export default function Algorithms() {
